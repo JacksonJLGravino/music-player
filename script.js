@@ -55,7 +55,6 @@ function updateTime() {
 const formatZero = (n) => (n < 10 ? '0' + n : n)
 
 function prevNextMusic(type = 'next') {
-  playPause.innerHTML = textButtonPlay
   if ((type == 'next' && index + 1 === songs.length) || type === 'init') {
     index = 0
   } else if (type == 'prev' && index === 0) {
@@ -68,7 +67,7 @@ function prevNextMusic(type = 'next') {
   nameMusic.innerHTML = songs[index].name
   bandName.innerHTML = songs[index].band
 
-  playPauseMusic()
+  if (type !== 'init') playPauseMusic()
 
   updateTime()
 }
